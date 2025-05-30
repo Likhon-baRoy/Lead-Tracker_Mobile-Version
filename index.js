@@ -18,6 +18,7 @@ const inputEl = document.getElementById("input-el");
 const inputBtn = document.getElementById("input-btn");
 const deleteBtn = document.getElementById("delete-btn");
 const ulEl = document.getElementById("ul-el");
+const warningEl = document.getElementById("warning-el");
 
 // store current leads globally to check for duplicates
 let currentLeads = [];
@@ -53,13 +54,14 @@ function saveInput() {
     const inputValue = inputEl.value.trim();
 
     if (inputValue === "" || !inputValue.startsWith("http")) { // check if input is empty or doesn't start with http
-        alert("Please enter a valid URL");
+        warningEl.innerText = "Please enter a valid URL";
         return;
     } else if (currentLeads.includes(inputValue)) { // check for duplicate URL
-        alert("This URL already exists.");
+        warningEl.innerText = "This URL already exists.";
         return;
     } else { // if no duplicates, save to database
         push(referenceInDB, inputValue)
+        warningEl.innerText = "";
     }
 
     // clear input field

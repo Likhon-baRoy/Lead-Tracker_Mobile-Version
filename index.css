@@ -10,6 +10,14 @@ label {
   font-weight: 900;
 }
 
+#warning-el {
+  color: red;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px 0;
+  display: block;
+}
+
 input {
   width: 100%;
   margin: 5px 0;
